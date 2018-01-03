@@ -1,0 +1,76 @@
+# Endpoints
+endpoints:
+  restart:
+    enabled: true
+#
+## Eureka
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: ${REGISTRY_SERVICE_URLS:http://registry:8761/eureka}
+#
+## Logging
+#logging:
+#  level:
+#    com.netflix.discovery: 'INFO'
+#    org.springframework.cloud: 'INFO'
+#  path: /oidigital/logs
+#  file: ${logging.path}/${spring.application.name}_application.log
+#
+## Management
+#management:
+#  security:
+#    enabled: false
+#
+## Server
+#server:
+#  port: 9411
+#  tomcat:
+#    accesslog:
+#      enabled: true
+#      directory: ${logging.path}/
+#      prefix: ${spring.application.name}_access_log
+
+---
+
+spring:
+  profiles: development
+  application:
+    name: zipkin
+  rabbitmq:
+    host: digdx01.interno
+  sleuth:
+    enabled: false
+
+zipkin:
+  store:
+    type: mem
+
+server:
+  port: 9411
+
+logging:
+  level.org.springframework.cloud: DEBUG
+  level.org.springframework.cloud.sleuth: TRACE
+  level.org.springframework.cloud.sleuth.log: DEBUG
+  level.org.springframework.cloud.sleuth.trace: DEBUG
+  level.org.springframework.cloud.sleuth.instrument.rxjava: DEBUG
+
+## Eureka
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://digdx01.interno:8761/eureka
+
+---
+
+spring:
+  profiles: staging
+
+---
+
+spring:
+  profiles: production
+
+eureka:
+  environment: "Produção"

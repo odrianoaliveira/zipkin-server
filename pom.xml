@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>oi.digital.base</groupId>
+        <artifactId>parent</artifactId>
+        <version>4.0.8</version>
+        <relativePath />
+    </parent>
+
+    <groupId>oi.digital.edge</groupId>
+    <artifactId>zipkin-server</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>Oi Digital - Edge Services - Zipkin Server</name>
+
+    <scm>
+        <connection>scm:git:ssh://git@dadhx01.interno/arquitetura-digital/zipkin-server.git</connection>
+        <developerConnection>scm:git:ssh://git@dadhx01.interno/arquitetura-digital/zipkin-server.git
+        </developerConnection>
+        <url>http://dadhx01.interno/arquitetura-digital/zipkin-server</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <properties>
+        <start-class>oi.digital.edge.Application</start-class>
+        <!--<docker.expose>8761</docker.expose>-->
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>dadhx05.interno</id>
+            <name>libs-release</name>
+            <url>http://dadhx05.interno:8081/repository/maven-public/</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>dadhx05.interno</id>
+            <name>plugins-release</name>
+            <url>http://dadhx05.interno:8081/repository/maven-public/</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.zipkin.java</groupId>
+            <artifactId>zipkin-server</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.zipkin.java</groupId>
+            <artifactId>zipkin-autoconfigure-ui</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-sleuth-zipkin-stream</artifactId>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-starter-stream-rabbitmq</artifactId>-->
+        <!--</dependency>-->
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
