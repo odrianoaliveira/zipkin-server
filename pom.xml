@@ -24,7 +24,7 @@
 
     <properties>
         <start-class>oi.digital.edge.Application</start-class>
-        <!--<docker.expose>8761</docker.expose>-->
+        <docker.expose>9411</docker.expose>
     </properties>
 
     <repositories>
