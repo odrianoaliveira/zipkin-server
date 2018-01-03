@@ -35,26 +35,10 @@ server:
 
 spring:
   profiles: development
-  application:
-    name: zipkin
   rabbitmq:
     host: digdx01.interno
   sleuth:
     enabled: false
-
-zipkin:
-  store:
-    type: mem
-
-server:
-  port: 9411
-
-logging:
-  level.org.springframework.cloud: DEBUG
-  level.org.springframework.cloud.sleuth: TRACE
-  level.org.springframework.cloud.sleuth.log: DEBUG
-  level.org.springframework.cloud.sleuth.trace: DEBUG
-  level.org.springframework.cloud.sleuth.instrument.rxjava: DEBUG
 
 # Eureka
 eureka:
