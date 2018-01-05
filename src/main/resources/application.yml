@@ -1,3 +1,9 @@
+# Spring
+spring:
+  rabbitmq:
+    addresses: ${RABBIT_ADDRESSES:digdx01.interno}
+    port: ${RABBIT_ADDRESSES:15672}
+
 # Endpoints
 endpoints:
   restart:
@@ -36,7 +42,8 @@ server:
 spring:
   profiles: development
   rabbitmq:
-    host: digdx01.interno
+    addresses: digdx01.interno
+    port: 15672
 
 # Eureka
 eureka:
