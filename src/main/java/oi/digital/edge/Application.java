@@ -2,9 +2,9 @@ package oi.digital.edge;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import zipkin.server.EnableZipkinServer;
+import org.springframework.cloud.sleuth.zipkin.stream.EnableZipkinStreamServer;
 
-@EnableZipkinServer
+@EnableZipkinStreamServer
 @SpringBootApplication
 public class Application {
 
