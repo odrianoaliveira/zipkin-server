@@ -1,6 +1,6 @@
 spring:
   application:
-    name: @project.artifactId@
+    name: @project.artifactId@-v@oidigital.application.version@
     index: ${spring.application.name}
   cloud:
     config:
@@ -13,6 +13,7 @@ info:
     artifactId: @project.artifactId@
     version: @project.version@
     environment: ${spring.profiles.active:default}
+    apiVersion: v@oidigital.application.version@
     port: @docker.expose@
 
 # Logging

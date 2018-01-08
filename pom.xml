@@ -25,6 +25,8 @@
     <properties>
         <start-class>oi.digital.edge.Application</start-class>
         <docker.expose>9411</docker.expose>
+        <oidigital.application.version>1</oidigital.application.version>
+        <docker.image.sufix>-v${oidigital.application.version}</docker.image.sufix>
     </properties>
 
     <repositories>
