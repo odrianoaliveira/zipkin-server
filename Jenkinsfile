@@ -14,7 +14,7 @@ timestamps {
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'devops']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'DADHX01_SSH', url: 'git@dadhx01:arquitetura-digital/jenkins.git']]])
                 extcode = load 'devops/deployMS.groovy'
             }
-            extcode.getJenkinsFile()
+            extcode.getJenkinsFileWithoutDeploy()
         } catch (e) {
             currentBuild.result = "FAILED"
             throw e
