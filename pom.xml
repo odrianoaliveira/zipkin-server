@@ -11,7 +11,7 @@
 
     <groupId>oi.digital.edge</groupId>
     <artifactId>zipkin-server</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
     <name>Oi Digital - Edge Services - Zipkin Server</name>
 
     <scm>
@@ -19,7 +19,7 @@
         <developerConnection>scm:git:ssh://git@dadhx01.interno/arquitetura-digital/zipkin-server.git
         </developerConnection>
         <url>http://dadhx01.interno/arquitetura-digital/zipkin-server</url>
-        <tag>HEAD</tag>
+        <tag>zipkin-server-1.0.1</tag>
     </scm>
 
     <properties>
