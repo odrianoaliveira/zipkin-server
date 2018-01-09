@@ -41,10 +41,24 @@ server:
 
 spring:
   profiles: development
-  rabbitmq:
-    addresses: digdx01.interno
-    port: 15672
-
+  cloud:
+    stream:
+      rabbit:
+        bindings:
+          sleuth:
+            consumer:
+              exchangeType: fanout
+      bindings:
+        sleuth:
+          binder: zipkin
+          destination: zipkin
+      binders:
+        zipkin:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                addresses: amqp://trace:trace@digpx17a.interno/trace,amqp://trace:trace@digpx17b.interno/trace
 # Eureka
 eureka:
   client:
