@@ -1,4 +1,4 @@
-package oi.digital.edge;
+package oi.digital.zipkinserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
