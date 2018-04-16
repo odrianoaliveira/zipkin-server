@@ -5,7 +5,7 @@
     <parent>
         <groupId>oi.digital.base</groupId>
         <artifactId>parent</artifactId>
-        <version>4.0.8</version>
+        <version>4.1.22</version>
         <relativePath />
     </parent>
 
@@ -16,17 +16,24 @@
 
     <scm>
         <connection>scm:git:ssh://git@dadhx01.interno/arquitetura-digital/zipkin-server.git</connection>
-        <developerConnection>scm:git:ssh://git@dadhx01.interno/arquitetura-digital/zipkin-server.git
-        </developerConnection>
+        <developerConnection>scm:git:ssh://git@dadhx01.interno/arquitetura-digital/zipkin-server.git</developerConnection>
         <url>http://dadhx01.interno/arquitetura-digital/zipkin-server</url>
         <tag>HEAD</tag>
     </scm>
 
     <properties>
         <start-class>oi.digital.zipkinserver.Application</start-class>
-        <docker.expose>9411</docker.expose>
         <oidigital.application.version>1</oidigital.application.version>
         <docker.image.sufix>-v${oidigital.application.version}</docker.image.sufix>
+        <jacoco.destFile>target/coverage-reports/jacoco.exec</jacoco.destFile>
+        <sonar.junit.reportPaths>target/surefire-reports</sonar.junit.reportPaths>
+        <sonar.jacoco.reportPaths>${jacoco.destFile}</sonar.jacoco.reportPaths>
+        <sonar.inclusions>
+            **/application/**/*,
+            **/interfaces/rest/*
+        </sonar.inclusions>
+
+        <docker.base.image>dadhx05.interno:9090/oracle/serverjre:8</docker.base.image>
     </properties>
 
     <repositories>
@@ -69,10 +76,6 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
